@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-python.python",          // Python support
+        "ms-python.black-formatter", // Black formatter
+        "EditorConfig.EditorConfig",  // vscode editorconfig support
+        "ms-python.pylint"           // Pylint support
+    ]
+}
