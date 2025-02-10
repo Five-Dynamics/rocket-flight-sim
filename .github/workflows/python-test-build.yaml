@@ -31,5 +31,7 @@ jobs:
 
       - name: Run Main Script
         run: |
-          cd rocket_py/polaris1
+          cd rocket_py
+          source venv/bin/activate
+          cd polaris1
           python testrocket.py

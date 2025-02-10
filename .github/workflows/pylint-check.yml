@@ -23,4 +23,6 @@ jobs:
         python -m pip install --upgrade pip
     - name: Analysing the code with pylint
       run: |
+        cd rocket_py
+        source venv/bin/activate
         python -m pylint $(git ls-files '*.py') --fail-under=7.0 --score=n
