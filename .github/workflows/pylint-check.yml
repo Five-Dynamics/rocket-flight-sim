@@ -1,0 +1,28 @@
+name: Pylint
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        cd rocket_py
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+    - name: Analysing the code with pylint
+      run: |
+        cd rocket_py
+        source venv/bin/activate
+        python -m pylint $(git ls-files '*.py') --fail-under=7.0 --score=n
