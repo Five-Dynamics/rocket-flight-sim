@@ -1,3 +1,9 @@
+"""
+testrocket.py
+
+This module defines and simulates a rocket (Polaris 1) using the RocketPy library and specs
+from the aae me teams
+"""
 from rocketpy import Rocket, SolidMotor
 
 test_rocket = Rocket(
