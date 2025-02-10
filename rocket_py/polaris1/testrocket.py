@@ -12,13 +12,13 @@ test_rocket = Rocket(
     mass=6.658,
     inertia=(2.222, 2.222, 0.00532),
     power_off_drag=0.70,
-    power_on_drag="./rocket_py/polaris1/data/test.csv",
+    power_on_drag="./data/test.csv",
     center_of_mass_without_motor=1.13,  # need
     coordinate_system_orientation="nose_to_tail",
 )
 
 test_solid = SolidMotor(
-    thrust_source="./rocket_py/polaris1/data/Loki_L1482-LB.csv",
+    thrust_source="./data/Loki_L1482-LB.csv",
     dry_mass=1.724,
     dry_inertia=(0.0361, 0.0361, 0.00124),
     nozzle_radius=0.0381,
