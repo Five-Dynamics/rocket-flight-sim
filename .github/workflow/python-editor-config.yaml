@@ -1,0 +1,26 @@
+name: EditorConfig Check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  editorconfig:
+    name: Check EditorConfig Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install EditorConfig Checker
+        run: |
+          curl -LO https://github.com/editorconfig-checker/editorconfig-checker/releases/latest/download/ec-linux-amd64
+          chmod +x ec-linux-amd64
+          mv ec-linux-amd64 /usr/local/bin/editorconfig-checker
+
+      - name: Run EditorConfig Check
+        run: editorconfig-checker
+
