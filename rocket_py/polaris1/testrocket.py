@@ -13,7 +13,7 @@ test_rocket = Rocket(
     inertia=(2.222, 2.222, 0.00532),
     power_off_drag=0.70,
     power_on_drag="./data/test.csv",
-    center_of_mass_without_motor=0.75,  # need
+    center_of_mass_without_motor=0.75,
     coordinate_system_orientation="nose_to_tail",
 )
 
@@ -27,9 +27,9 @@ test_solid = SolidMotor(
     grain_outer_radius=35 / 1000,
     grain_initial_inner_radius=0.009525,
     grain_initial_height=0.13335,
-    grain_separation=5/1000,  # need
-    grains_center_of_mass_position=0.25,  # need
-    center_of_dry_mass_position=0.25,  # need
+    grain_separation=5/1000,
+    grains_center_of_mass_position=0.25,
+    center_of_dry_mass_position=0.25,
     nozzle_position=0,
     burn_time=2.6,
     throat_radius=0.0381 / 2,
