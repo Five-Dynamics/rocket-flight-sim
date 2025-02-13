@@ -5,7 +5,8 @@ This module defines and simulates a rocket (Polaris 1) using the RocketPy librar
 from the aae me teams
 """
 
-from rocketpy import Rocket, SolidMotor
+import datetime
+from rocketpy import Environment, SolidMotor, Rocket, Flight
 
 test_rocket = Rocket(
     radius=0.04,
@@ -67,4 +68,21 @@ drogue = test_rocket.add_parachute(
     trigger="apogee",
 )
 
-test_rocket.all_info()
+# test_rocket.all_info()
+
+# Define Environment : West Lafayette on Feb 28 (Latest Available)
+env = Environment(latitude=40.4259, longitude=86.9081, elevation=187.147)
+
+env.set_date((2025, 2, 28, 12))  # Hour given in UTC time
+
+env.set_atmospheric_model(type="Forecast", file="GFS")
+
+# Simulate Flight
+
+test_flight = Flight(
+    rocket=test_rocket, environment=env, rail_length=2.4, inclination=85, heading=0
+)
+
+# Generate useful data
+
+test_flight.plots.trajectory_3d()
